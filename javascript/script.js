@@ -183,6 +183,26 @@ $(function(){
 
 
         /* work btn event */
+        let workH2 = $('#desktop #work .bg>h2');
+        let workH2Click = false;
+        workH2.hover(function(){
+            workH2.removeClass('on');
+            $(this).addClass('on');
+        });
+        workH2.click(function(){
+            let workTitle = $(this).attr('class');
+            workH2.removeClass('on');
+            $(this).addClass('on');
+            
+            if (workTitle == "firstWork on"){
+                console.log('ccw ccw ccw');
+            }else if (workTitle == "secondWork on"){
+                console.log('no 작동')
+            }else{
+                console.log('오류')
+            }
+        });
+
         let btnList=$('.work-content>.slide-btn>li');
         btnList.on({click:function(){
             let i=$(this).index();
@@ -224,5 +244,5 @@ $(function(){
             }
         }})
     }
-    window.onresize = function(){ document.location.reload(); };
+    /* window.onresize = function(){ document.location.reload(); }; */
 })
