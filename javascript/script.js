@@ -184,7 +184,7 @@ $(function(){
 
         /* work btn event */
         let workH2 = $('#desktop #work .bg>h2');
-        let workH2Click = false;
+
         workH2.hover(function(){
             workH2.removeClass('on');
             $(this).addClass('on');
@@ -195,21 +195,32 @@ $(function(){
             $(this).addClass('on');
             
             if (workTitle == "firstWork on"){
-                console.log('ccw ccw ccw');
+                $('.myWork>div').removeClass('on')
+                $('.ccw').addClass('on');
             }else if (workTitle == "secondWork on"){
-                console.log('no 작동')
+                $('.myWork>div').removeClass('on')
+                $('.jsProject').addClass('on');
             }else{
                 console.log('오류')
             }
         });
 
-        let btnList=$('.work-content>.slide-btn>li');
-        btnList.on({click:function(){
+        let ccwBtnList=$('.ccw>.work-content>.slide-btn>li');
+        ccwBtnList.on({click:function(){
             let i=$(this).index();
-            btnList.removeClass('on')
+            ccwBtnList.removeClass('on')
             $(this).addClass('on')
-            $('.clone-coding>.aside').animate({opacity:0,zIndex:0});
-            $('.clone-coding>.aside').eq(i).animate({opacity:1,zIndex:9},300);
+            $('.ccw>.clone-coding>.aside').animate({opacity:0,zIndex:0});
+            $('.ccw>.clone-coding>.aside').eq(i).animate({opacity:1,zIndex:9},300);
+        }});
+
+        let jsBtnList=$('.jsProject>.work-content>.slide-btn>li');
+        jsBtnList.on({click:function(){
+            let i=$(this).index();
+            jsBtnList.removeClass('on')
+            $(this).addClass('on')
+            $('.jsProject>.clone-coding>.aside').animate({opacity:0,zIndex:0});
+            $('.jsProject>.clone-coding>.aside').eq(i).animate({opacity:1,zIndex:9},300);
         }})
     }
     /* 모바일 (768px~) 스크립트 */
